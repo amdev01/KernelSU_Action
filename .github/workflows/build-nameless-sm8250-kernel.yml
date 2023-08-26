@@ -130,9 +130,10 @@ jobs:
               mkdir gcc-64
               unzip gcc-64.zip -d gcc-64/
           fi
+          echo "GCC_64=CROSS_COMPILE=$GITHUB_WORKSPACE/kernel_workspace/gcc-64/bin/${{ env.CUSTOM_GCC_64_BIN }}" >> $GITHUB_ENV
         fi
 
-        if [ ${{ env.USE_CUSTOM_GCC_64 }} = true ]; then
+        if [ ${{ env.USE_CUSTOM_GCC_32 }} = true ]; then
           if [[ ${{ env.CUSTOM_GCC_32_SOURCE }} =~ git ]]; then
               if [[ ${{ env.CUSTOM_GCC_32_SOURCE }} == *'.tar.gz' ]]; then
                 wget -O gcc-32.tar.gz ${{ env.CUSTOM_CLANG_SOURCE }}
@@ -146,6 +147,7 @@ jobs:
             mkdir gcc-32
             unzip gcc-32.zip -d gcc-32/
           fi
+          echo "GCC_32=CROSS_COMPILE=$GITHUB_WORKSPACE/kernel_workspace/gcc-32/bin/${{ env.CUSTOM_GCC_32_BIN }}" >> $GITHUB_ENV
         fi
 
     - name: Download mkbootimg tools
