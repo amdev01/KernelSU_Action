@@ -1,7 +1,6 @@
 name: Build Nameless SM8250 Kernel
 on:
   watch:
-    types: [started]
   schedule:
     - cron: '0 16 * * *'
 
