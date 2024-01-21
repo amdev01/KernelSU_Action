@@ -171,7 +171,8 @@ jobs:
     - name: Apply KSU patch
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
-        git apply ksu-oplus_sm8150_yaap.patch
+        git apply $GITHUB_WORKSPACE/ksu-oplus_sm8150_yaap.patch
+
 
     - name: Setup KernelSU
       if: env.ENABLE_KERNELSU == 'true'
