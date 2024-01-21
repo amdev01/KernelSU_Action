@@ -168,6 +168,11 @@ jobs:
             echo "HAVE_SOURCE_BOOT_IMAGE=true" >> $GITHUB_ENV
         fi
   
+    - name: Apply KSU patch
+      run: |
+        cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
+        git apply ksu-oplus_sm8150_yaap.patch
+
     - name: Setup KernelSU
       if: env.ENABLE_KERNELSU == 'true'
       run: |
